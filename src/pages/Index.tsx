@@ -30,6 +30,8 @@ interface Prediction {
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState('home');
+  const [sportMenuOpen, setSportMenuOpen] = useState(false);
+  const [selectedSport, setSelectedSport] = useState<string>('football');
 
   const matches: Match[] = [
     { id: 1, homeTeam: 'Манчестер Сити', awayTeam: 'Ливерпуль', homeScore: 2, awayScore: 1, status: 'live', time: '67\'', league: 'АПЛ' },
@@ -61,12 +63,42 @@ const Index = () => {
                 <Icon name="Activity" className="text-primary" size={32} />
                 <h1 className="text-2xl font-bold">SportAnalytics</h1>
               </div>
-              <button 
-                onClick={() => setActiveTab('events')} 
-                className={`text-left px-4 py-2 rounded-lg transition-colors ${activeTab === 'events' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
-              >
-                СПОРТ
-              </button>
+              <div className="relative">
+                <button 
+                  onClick={() => setSportMenuOpen(!sportMenuOpen)} 
+                  className={`text-left px-4 py-2 rounded-lg transition-colors ${sportMenuOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+                >
+                  СПОРТ
+                </button>
+                {sportMenuOpen && (
+                  <div className="absolute top-full mt-2 left-0 bg-card border border-border rounded-lg shadow-lg overflow-hidden min-w-[150px] z-50 animate-fade-in">
+                    <button
+                      onClick={() => {
+                        setSelectedSport('football');
+                        setActiveTab('events');
+                        setSportMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
+                        selectedSport === 'football' ? 'bg-primary/10 text-primary' : ''
+                      }`}
+                    >
+                      Футбол
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSelectedSport('hockey');
+                        setActiveTab('events');
+                        setSportMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
+                        selectedSport === 'hockey' ? 'bg-primary/10 text-primary' : ''
+                      }`}
+                    >
+                      Хоккей
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="hidden md:flex items-center gap-6">
               <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
