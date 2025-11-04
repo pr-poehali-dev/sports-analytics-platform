@@ -66,7 +66,7 @@ const Index = () => {
               <div className="relative">
                 <button 
                   onClick={() => setSportMenuOpen(!sportMenuOpen)} 
-                  className={`px-4 py-2 rounded-lg transition-colors font-semibold ${sportMenuOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+                  className={`px-4 py-2 rounded-lg transition-colors font-semibold ${sportMenuOpen ? 'bg-primary text-primary-foreground' : 'text-primary hover:text-primary/80'}`}
                 >
                   СПОРТ
                 </button>
@@ -101,13 +101,13 @@ const Index = () => {
               </div>
             </div>
             <div className="hidden md:flex items-center gap-6">
-              <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+              <button onClick={() => setActiveTab('home')} className={`transition-colors text-primary hover:text-primary/80`}>
                 Главная
               </button>
-              <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+              <button onClick={() => setActiveTab('rating')} className={`transition-colors text-primary hover:text-primary/80`}>
                 Турнирные таблицы БП
               </button>
-              <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+              <button onClick={() => setActiveTab('analytics')} className={`transition-colors text-primary hover:text-primary/80`}>
                 Центр событий
               </button>
             </div>
@@ -119,7 +119,7 @@ const Index = () => {
           <div className="flex justify-center mt-4">
             <button 
               onClick={() => setActiveTab('predictions')} 
-              className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+              className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'text-primary hover:text-primary/80'}`}
             >
               БИТВА ПРОГНОЗОВ
             </button>
