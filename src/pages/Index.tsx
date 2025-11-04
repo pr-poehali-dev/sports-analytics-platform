@@ -100,29 +100,29 @@ const Index = () => {
                 )}
               </div>
             </div>
-            <div className="flex flex-col items-center gap-4 flex-1">
-              <button 
-                onClick={() => setActiveTab('predictions')} 
-                className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
-              >
-                БИТВА ПРОГНОЗОВ
+            <div className="hidden md:flex items-center gap-6">
+              <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                Главная
               </button>
-              <div className="hidden md:flex items-center gap-6">
-                <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                  Главная
-                </button>
-                <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                  Рейтинг
-                </button>
-                <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                  Аналитика
-                </button>
-              </div>
+              <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                Рейтинг
+              </button>
+              <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                Аналитика
+              </button>
             </div>
             <Button variant="default" className="hidden md:block">
               <Icon name="User" size={18} className="mr-2" />
               Профиль
             </Button>
+          </div>
+          <div className="flex justify-center mt-4">
+            <button 
+              onClick={() => setActiveTab('predictions')} 
+              className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+            >
+              БИТВА ПРОГНОЗОВ
+            </button>
           </div>
         </div>
       </nav>
