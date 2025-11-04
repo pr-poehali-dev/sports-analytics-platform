@@ -57,70 +57,72 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Icon name="Activity" className="text-primary" size={32} />
-              <h1 className="text-2xl font-bold">SportAnalytics</h1>
+          <div className="flex items-start justify-between">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <Icon name="Activity" className="text-primary" size={32} />
+                <h1 className="text-2xl font-bold">SportAnalytics</h1>
+              </div>
+              <div className="relative">
+                <button 
+                  onClick={() => setSportMenuOpen(!sportMenuOpen)} 
+                  className={`px-4 py-2 rounded-lg transition-colors font-semibold ${sportMenuOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+                >
+                  СПОРТ
+                </button>
+                {sportMenuOpen && (
+                  <div className="absolute top-full mt-2 left-0 bg-card border border-border rounded-lg shadow-lg overflow-hidden min-w-[150px] z-50 animate-fade-in">
+                    <button
+                      onClick={() => {
+                        setSelectedSport('football');
+                        setActiveTab('events');
+                        setSportMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
+                        selectedSport === 'football' ? 'bg-primary/10 text-primary' : ''
+                      }`}
+                    >
+                      Футбол
+                    </button>
+                    <button
+                      onClick={() => {
+                        setSelectedSport('hockey');
+                        setActiveTab('events');
+                        setSportMenuOpen(false);
+                      }}
+                      className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
+                        selectedSport === 'hockey' ? 'bg-primary/10 text-primary' : ''
+                      }`}
+                    >
+                      Хоккей
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col items-center gap-4 flex-1">
+              <button 
+                onClick={() => setActiveTab('predictions')} 
+                className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+              >
+                БИТВА ПРОГНОЗОВ
+              </button>
+              <div className="hidden md:flex items-center gap-6">
+                <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                  Главная
+                </button>
+                <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                  Рейтинг
+                </button>
+                <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+                  Аналитика
+                </button>
+              </div>
             </div>
             <Button variant="default" className="hidden md:block">
               <Icon name="User" size={18} className="mr-2" />
               Профиль
             </Button>
-          </div>
-          <div className="flex items-center justify-center gap-8 mt-6">
-            <div className="relative">
-              <button 
-                onClick={() => setSportMenuOpen(!sportMenuOpen)} 
-                className={`px-6 py-2 rounded-lg transition-colors font-semibold ${sportMenuOpen ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
-              >
-                СПОРТ
-              </button>
-              {sportMenuOpen && (
-                <div className="absolute top-full mt-2 left-0 bg-card border border-border rounded-lg shadow-lg overflow-hidden min-w-[150px] z-50 animate-fade-in">
-                  <button
-                    onClick={() => {
-                      setSelectedSport('football');
-                      setActiveTab('events');
-                      setSportMenuOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
-                      selectedSport === 'football' ? 'bg-primary/10 text-primary' : ''
-                    }`}
-                  >
-                    Футбол
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSelectedSport('hockey');
-                      setActiveTab('events');
-                      setSportMenuOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2 hover:bg-muted transition-colors ${
-                      selectedSport === 'hockey' ? 'bg-primary/10 text-primary' : ''
-                    }`}
-                  >
-                    Хоккей
-                  </button>
-                </div>
-              )}
-            </div>
-            <button 
-              onClick={() => setActiveTab('predictions')} 
-              className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
-            >
-              БИТВА ПРОГНОЗОВ
-            </button>
-          </div>
-          <div className="hidden md:flex items-center justify-center gap-6 mt-4">
-            <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-              Главная
-            </button>
-            <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-              Рейтинг
-            </button>
-            <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-              Аналитика
-            </button>
           </div>
         </div>
       </nav>
