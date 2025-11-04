@@ -119,7 +119,7 @@ const Index = () => {
           <div className="flex justify-center mt-4">
             <button 
               onClick={() => setActiveTab('predictions')} 
-              className={`px-6 py-2 rounded-lg transition-colors font-semibold ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'text-primary hover:text-primary/80'}`}
+              className={`px-6 py-2 rounded-lg transition-colors font-semibold text-2xl ${activeTab === 'predictions' ? 'bg-primary text-primary-foreground' : 'text-primary hover:text-primary/80'}`}
             >
               БИТВА ПРОГНОЗОВ
             </button>
