@@ -108,7 +108,7 @@ const Index = () => {
                 Турнирные таблицы БП
               </button>
               <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                Аналитика
+                Центр событий
               </button>
             </div>
             <Button variant="default" className="hidden md:block">
