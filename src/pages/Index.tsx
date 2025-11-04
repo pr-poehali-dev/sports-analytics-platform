@@ -55,17 +55,22 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Icon name="Activity" className="text-primary" size={32} />
-              <h1 className="text-2xl font-bold">SportAnalytics</h1>
+          <div className="flex items-start justify-between">
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-2">
+                <Icon name="Activity" className="text-primary" size={32} />
+                <h1 className="text-2xl font-bold">SportAnalytics</h1>
+              </div>
+              <button 
+                onClick={() => setActiveTab('events')} 
+                className={`text-left px-4 py-2 rounded-lg transition-colors ${activeTab === 'events' ? 'bg-primary text-primary-foreground' : 'bg-muted/50 text-foreground hover:bg-muted'}`}
+              >
+                СПОРТ
+              </button>
             </div>
             <div className="hidden md:flex items-center gap-6">
               <button onClick={() => setActiveTab('home')} className={`transition-colors ${activeTab === 'home' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 Главная
-              </button>
-              <button onClick={() => setActiveTab('events')} className={`transition-colors ${activeTab === 'events' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                События
               </button>
               <button onClick={() => setActiveTab('predictions')} className={`transition-colors ${activeTab === 'predictions' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 Прогнозы
@@ -214,7 +219,7 @@ const Index = () => {
         {activeTab === 'events' && (
           <div className="space-y-6 animate-fade-in">
             <div className="flex items-center justify-between">
-              <h2 className="text-3xl font-bold">Футбольные События</h2>
+              <h2 className="text-3xl font-bold">СПОРТ</h2>
               <div className="flex gap-2">
                 <Button variant="outline" size="sm">
                   <Icon name="Filter" size={16} className="mr-2" />
