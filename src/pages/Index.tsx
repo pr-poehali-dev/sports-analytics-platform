@@ -105,7 +105,7 @@ const Index = () => {
                 Главная
               </button>
               <button onClick={() => setActiveTab('rating')} className={`transition-colors ${activeTab === 'rating' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                Рейтинг
+                Турнирные таблицы БП
               </button>
               <button onClick={() => setActiveTab('analytics')} className={`transition-colors ${activeTab === 'analytics' ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
                 Аналитика
