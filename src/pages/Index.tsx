@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import Icon from '@/components/ui/icon';
+import FootballPlayer from '@/components/FootballPlayer';
 
 interface Match {
   id: number;
@@ -55,7 +56,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
+      <nav className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50 relative overflow-hidden">
+        <FootballPlayer />
         <div className="container mx-auto px-4 py-2">
           <div className="flex items-start justify-between">
             <div className="flex flex-col gap-4">
